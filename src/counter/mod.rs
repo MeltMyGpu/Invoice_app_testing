@@ -2,7 +2,7 @@
 use iced::{Alignment, Element, Length, Sandbox, Settings};
 use iced::widget::{column, button, text, container, scrollable};
 
-use crate::{Views, AppMessage};
+use crate::AppManager::{Views};
 
 // State
 #[derive(Default)]
@@ -81,7 +81,3 @@ impl Sandbox for  Counter {
 
 }
 
-
-pub fn run_execute() {
-    Counter::run(Settings::default());
-}
