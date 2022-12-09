@@ -2,6 +2,8 @@
 use iced::{Alignment, Element, Length, Sandbox, Settings};
 use iced::widget::{column, button, text, container, scrollable};
 
+use crate::{Views, AppMessage};
+
 // State
 #[derive(Default)]
 pub struct Counter {
@@ -14,20 +16,22 @@ pub struct Counter {
 pub enum Message {
     IncrementPressed,
     DecrementPressed,
+    ChangePage(Views)
 }
 
 
 
 
-impl Sandbox for Counter {
-    type Message = Message;
+
+impl Sandbox for  Counter {
+    
 
     fn new() -> Self {
         Self::default()
     }
 
     fn title(&self) -> String {
-        String::from("Testinf counter")
+        String::from("Testing counter")
     }
     
     fn update(&mut self, message: Message){
@@ -38,6 +42,7 @@ impl Sandbox for Counter {
             Message::DecrementPressed => {
                 self.value -= 1;
             }
+            _ => {}
         }
     }
 
@@ -55,7 +60,7 @@ impl Sandbox for Counter {
             text(self.value).size(50),
 
             // the dec button 
-            button("-").on_press(Message::DecrementPressed),
+            button("-").on_press(Message::ChangePage(Views::HomePage)),
         ]
         .width(Length::Fill)
         .align_items(Alignment::Center)
@@ -69,6 +74,8 @@ impl Sandbox for Counter {
             .into()
 
     }
+
+    type Message = Message;
 
     // Update logic 
 

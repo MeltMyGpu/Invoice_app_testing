@@ -1,51 +1,46 @@
-use iced::executor;
+use std::default;
+
+use iced::{executor, Length};
+use iced::widget::{Container, Text};
 use iced::{Application, Command, Element, Settings, Theme};
+use iced::Sandbox;
+use crate::counter::Message;
 
 
 
-#[derive(Debug)]
-pub enum Message {
-    Task(State),
-}
-
-#[derive(Debug, Default)]
-pub struct State {
-    done: bool,
-}
 
 
+#[derive(Default)]
 pub struct HomePage {
-
 }
 
-impl Application for HomePage {
-    type Executor = executor::Default;
-    type Flags = ();
-    type Message = Message;
-    type Theme = Theme;
+impl Sandbox for HomePage {
 
-    fn new(flags: Self::Flags) -> (Self, Command<Self::Message>) {
-        todo!()
+    fn new() -> Self{
+        HomePage {}
     }
+
+    fn view(&self) -> Element<Message> {
+        Container::new(Text::new("hello there..."))
+            .width(Length::Fill)
+            .height(Length::Fill)
+            .center_x()
+            .center_y()
+            .into()
+    }
+
+    type Message = Message;
 
     fn title(&self) -> String {
-        String::from("The home page")
+        String::from("Home Page")
     }
 
-    fn update(&mut self, message: Self::Message) -> Command<Self::Message> {
-        match message {
-            Task(State) => {
-                match State.done {
-                    true => {}
-                    false => {}
-                }
-            }
-            _ => ()
-        }
+    fn update(&mut self, message: Self::Message) {
+       match message {
+           _ => {}
+       }
     }
 
-    fn view(&self) -> Element<'_, Self::Message, iced::Renderer<Self::Theme>> {
-        todo!()
-    }
-    
-} 
+}
+
+ 
