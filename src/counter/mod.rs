@@ -19,20 +19,10 @@ pub enum Message {
     ChangePage(Views)
 }
 
-
-
-
-
 impl Counter {
     
     pub fn new() -> Self {
         Counter { value: 0 }
-    }
-
-
-
-    pub fn title(&self) -> String {
-        String::from("Testing counter")
     }
     
     pub fn update(&mut self, message: Message){

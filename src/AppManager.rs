@@ -1,9 +1,6 @@
-
 use crate::counter::{Message, Counter};
 use crate::home_page_test::HomePage;
 use iced::{Sandbox, Element, Settings};
-
-
 
 #[derive(Debug,Clone,Copy)]
 pub enum Views {
@@ -15,7 +12,6 @@ pub enum Views {
 enum AppMessage {
 
 }
-
 
 pub struct AppManager {
     current_view : Views,
@@ -33,7 +29,6 @@ impl Sandbox for AppManager {
             counter: Counter::new()
         }
     }
-
 
     fn title(&self) -> String {
         String::from("Shitbox with extra ice")
