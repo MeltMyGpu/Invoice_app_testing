@@ -1,9 +1,8 @@
-use std::default;
 
-use iced::{executor, Length};
+
+use iced::{ Length};
 use iced::widget::{Container, Text};
-use iced::{Application, Command, Element, Settings, Theme};
-use iced::Sandbox;
+use iced::{Element};
 use crate::counter::Message;
 
 
@@ -14,31 +13,19 @@ use crate::counter::Message;
 pub struct HomePage {
 }
 
-impl Sandbox for HomePage {
+impl HomePage {
 
-    fn new() -> Self{
+    pub fn new() -> Self{
         HomePage {}
     }
 
-    fn view(&self) -> Element<Message> {
+    pub fn view(&self) -> Element<Message> {
         Container::new(Text::new("hello there..."))
             .width(Length::Fill)
             .height(Length::Fill)
             .center_x()
             .center_y()
             .into()
-    }
-
-    type Message = Message;
-
-    fn title(&self) -> String {
-        String::from("Home Page")
-    }
-
-    fn update(&mut self, message: Self::Message) {
-       match message {
-           _ => {}
-       }
     }
 
 }

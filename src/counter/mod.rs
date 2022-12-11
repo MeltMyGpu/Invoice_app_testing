@@ -1,8 +1,8 @@
 // Iced
-use iced::{Alignment, Element, Length, Sandbox, Settings};
+use iced::{Alignment, Element, Length};
 use iced::widget::{column, button, text, container, scrollable};
 
-use crate::AppManager::{Views};
+use crate::AppManager::Views;
 
 // State
 #[derive(Default)]
@@ -23,18 +23,19 @@ pub enum Message {
 
 
 
-impl Sandbox for  Counter {
+impl Counter {
     
-
-    fn new() -> Self {
-        Self::default()
+    pub fn new() -> Self {
+        Counter { value: 0 }
     }
 
-    fn title(&self) -> String {
+
+
+    pub fn title(&self) -> String {
         String::from("Testing counter")
     }
     
-    fn update(&mut self, message: Message){
+    pub fn update(&mut self, message: Message){
         match message {
             Message::IncrementPressed => {
                 self.value += 1;
@@ -49,7 +50,7 @@ impl Sandbox for  Counter {
 
     // View logic - dispalys state as widgets that may produce messages on interaction
 
-    fn view(&self) -> Element<Message>{
+    pub fn view(&self) -> Element<Message>{
 
         // use columb, simple vertical layout
         let content = column![
@@ -75,9 +76,7 @@ impl Sandbox for  Counter {
 
     }
 
-    type Message = Message;
 
-    // Update logic 
 
 }
 

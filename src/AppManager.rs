@@ -36,10 +36,7 @@ impl Sandbox for AppManager {
 
 
     fn title(&self) -> String {
-        match self.current_view {
-            Views::Counter => self.counter.title(),
-            Views::HomePage => self.home_page.title()
-        } 
+        String::from("Shitbox with extra ice")
     }
 
     fn update(&mut self, message: Self::Message) {
@@ -61,5 +58,5 @@ impl Sandbox for AppManager {
 }
 
 pub fn run() {
-    AppManager::run(Settings::default());
+    AppManager::run(Settings::default()).unwrap();
 }
